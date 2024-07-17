@@ -1,0 +1,24 @@
+.conteudo{
+  width: 100%;
+  // background-color: cadetblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 2rem;
+  }
+
+
+}
+.carde{
+  padding: .5rem;
+}
+.int{
+  // background-color: coral;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

@@ -1,0 +1,157 @@
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+-->
+<div class="min-h-full">
+  <nav class="bg-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
+              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">Novo Poste</a>
+              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
+
+
+
+<!-- Modal Novo Poste -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nova Postagem</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+<!--
+  This example requires some changes to your config:
+
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<form [formGroup]="message" (ngSubmit)="sendMessage()">
+  <div class="space-y-12">
+
+
+    <div class="border-b border-gray-900/10 pb-12">
+      <h2 class="text-base font-semibold leading-7 text-gray-900">Digite sua nova mensagem !</h2>
+
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-3">
+          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Título</label>
+          <div class="mt-2">
+            <input type="text" name="first-name" id="first-name" formControlName="title" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Mensagem</label>
+          <div class="mt-2">
+            <input type="text" name="last-name" id="last-name" formControlName="body" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-b border-gray-900/10 pb-12">
+      <h2 class="text-base font-semibold leading-7 text-gray-900">Notifications</h2>
+      <p class="mt-1 text-sm leading-6 text-gray-600">We'll always let you know about important changes, but you pick what else you want to hear about.</p>
+
+    </div>
+  </div>
+
+  <div class="mt-6 flex items-center justify-end gap-x-6">
+    <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+  </div>
+</form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </nav>
+
+
+
+</div>
+
+<main class="conteudo">
+
+<h1>Postagens</h1>
+<hr>
+    <!-- Your content -->
+    <div class="int">
+      <div class="row carde" *ngFor="let item of allPostes" style="width: 30%;">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><b>{{item.title}}</b></h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <button type="button" class="btn btn-outline-warning btn-sm">Editar</button>&nbsp;
+              <button type="button" class="btn btn-outline-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#exampleModalExcluir">Excluir</button>
+
+            </div>
+          </div>
+        </div>
+
+
+<!-- Modal Excluir -->
+<div class="modal fade" id="exampleModalExcluir" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Mensagem</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Deseja Realmente Exlcuir ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Fechar</button>
+        <button type="button" class="btn btn-danger" (click)="deleteMessage(item.id)" data-bs-dismiss="modal">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+      </div>
+
+    </div>
+
+
+</main>
