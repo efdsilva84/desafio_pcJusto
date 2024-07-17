@@ -10,6 +10,7 @@ import { ToastService } from '../services/toast.service';
 })
 export class HomeComponent {
   allPostes:any;
+  poste:any;
   constructor(private postes: PostsService, private toast : ToastService){
 
 }
@@ -61,6 +62,22 @@ async allPost(){
       console.log('delete', data)
       this.allPost();
 
+    })
+
+
+  }
+
+  editPoste(id:any){
+    console.log('id a ser editado', id)
+    this.postes.getPosteId(id).subscribe((data:any)=>{
+      this.poste = data;
+      console.log('poste buscado', this.poste);
+      this.message = new FormGroup({
+        title: this.poste.title,
+        body: this.poste.body,
+        userId: this.poste.userId,
+
+      });
     })
 
 

@@ -17,6 +17,10 @@ export class PostsService {
     return this.api.post('posts', data);
   }
   deletePoste(id:any) {
-    return this.api.delete('posts', id);
+    return this.api.delete(`posts/${id}`, false);
+  }
+  getPosteId(id:number){
+    return this.api.get(`posts/${id}`, false);
+
   }
 }
